@@ -13,6 +13,7 @@ run:
   args:
     - -c
     - |
+      echo "${M2_SETTINGS}" > ${HOME}/.m2/settings.xml
       echo "Calling Maven ..."
       cd source-code/mvn-pro
       mvn verify

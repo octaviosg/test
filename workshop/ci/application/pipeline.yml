@@ -13,3 +13,5 @@ jobs:
     trigger: true
   - task: build-and-verify
     file: source-code/workshop/tasks/build-and-verify.yml
+    params:
+        M2_SETTINGS: {{maven-settings-xml}}
