@@ -1,0 +1,11 @@
+resources:
+name: source-code
+  type: git
+  sources:
+    uri: https://github.com/octaviosg/test
+jobs:
+- name: job-hello-world
+  plan:
+  - get: source-code
+  - task: print-hello-world
+    file: source-code/produce-greeting.yml
