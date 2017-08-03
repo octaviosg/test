@@ -1,10 +1,23 @@
 ---
+resource_types:
+- name: maven-resource
+  type: docker-image
+  source:
+    repository: pivotalpa/maven-resource
+    tag: latest
 resources:
 - name: source-code
   type: git
   source:
     uri: https://github.com/octaviosg/test
     branch: master
+- name: artifact-repo
+  type: maven-resource
+  source:
+    url: https://nexus.audatex.com/nexus/content/repositories
+    artifact: com.example.octavio:demo:jar
+    username: sa-ww-gdc-cf-dev@audatex.com
+    password: S0l3er@P@sSw0rd92!E
 
 jobs:
 - name: build-and-verify
@@ -15,3 +28,7 @@ jobs:
     file: source-code/workshop/tasks/build-and-verify.yml
     params:
         M2_SETTINGS: {{maven-settings-xml}}
+  - put: artifact-repo
+    params:
+      file: build-artifact/*.jar
+      pom_file: source-code/mvn-pro/pom.xml

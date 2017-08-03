@@ -8,6 +8,9 @@ image_resource:
 inputs:
 - name: source-code
 
+outputs:
+- name: build-artifact
+
 run:
   path: sh
   args:
@@ -17,3 +20,5 @@ run:
       echo "Calling Maven ..."
       cd source-code/mvn-pro
       mvn verify
+      echo "Copying artifacts..."
+      cp -r target/*.jar ../../build-artifact
