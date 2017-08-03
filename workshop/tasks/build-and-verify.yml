@@ -22,3 +22,4 @@ run:
       mvn verify
       echo "Copying artifacts..."
       cp -r target/*.jar ../../build-artifact
+      echo "0.0.1-SNAPSHOT" > ../../build-artifact/version_file

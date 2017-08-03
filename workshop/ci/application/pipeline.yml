@@ -32,3 +32,4 @@ jobs:
     params:
       file: build-artifact/*.jar
       pom_file: source-code/mvn-pro/pom.xml
+      version_file: build-artifact/version_file
