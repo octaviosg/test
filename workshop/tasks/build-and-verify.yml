@@ -14,5 +14,5 @@ run:
     - -c
     - |
       echo "Calling Maven ..."
-      cd source-code
+      cd source-code/mvn-pro
       mvn verify
