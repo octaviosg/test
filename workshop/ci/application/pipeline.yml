@@ -1,12 +1,15 @@
+---
 resources:
 - name: source-code
   type: git
   source:
     uri: https://github.com/octaviosg/test
     branch: master
+
 jobs:
-- name: job-hello-world
+- name: build-and-verify
   plan:
   - get: source-code
-  - task: print-hello-world
-    file: source-code/produce-greeting.yml
+    trigger: true
+  - task: build-and-verify
+    target: source-code/workshop/task/build-and-verify.yml

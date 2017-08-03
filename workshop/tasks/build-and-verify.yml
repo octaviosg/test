@@ -1,0 +1,17 @@
+platform: linux
+image_resource:
+  type: docker-image
+  source:
+    repository: busybox
+
+inputs:
+- name: source-code
+
+run:
+  path: sh
+  args:
+    - -c
+    - |
+      echo "Calling Maven ..."
+      cd source-code
+      mvn verify
